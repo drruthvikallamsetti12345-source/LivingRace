@@ -5,13 +5,16 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Finish, function (sprite, otherS
     carnival.customGameOverExpanded("Great Job!")
 })
 controller.player2.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+    let mySprite2: Sprite = null
     mySprite.x += 1.5
     mySprite2.startEffect(effects.hearts, 100)
     info.player2.changeLifeBy(1)
 })
 controller.player4.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+    let mySprite4: Sprite = null
     mySprite4.x += 1.5
     mySprite.startEffect(effects.fountain, 100)
+    info.player4.changeScoreBy(1)
 })
 controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
     mySprite.x += 1.5
@@ -19,13 +22,11 @@ controller.player1.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Press
     info.player1.changeLifeBy(1)
 })
 controller.player3.onButtonEvent(ControllerButton.A, ControllerButtonEvent.Pressed, function () {
+    let mySprite3: Sprite = null
     mySprite3.x += 1.5
     mySprite3.startEffect(effects.confetti, 100)
-    info.player3.changeLifeBy(1.5)
+    info.player3.changeLifeBy(1)
 })
-let mySprite4: Sprite = null
-let mySprite3: Sprite = null
-let mySprite2: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundColor(0)
 scene.setBackgroundImage(img`
@@ -168,72 +169,7 @@ mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . . . f f f . . . . . . 
     `, SpriteKind.Player)
-mySprite.setPosition(20, 20)
-mySprite2 = sprites.create(img`
-    . . . . c c c c c c . . . . . . 
-    . . . c 6 7 7 7 7 6 c . . . . . 
-    . . c 7 7 7 7 7 7 7 7 c . . . . 
-    . c 6 7 7 7 7 7 7 7 7 6 c . . . 
-    . c 7 c 6 6 6 6 c 7 7 7 c . . . 
-    . f 7 6 f 6 6 f 6 7 7 7 f . . . 
-    . f 7 7 7 7 7 7 7 7 7 7 f . . . 
-    . . f 7 7 7 7 6 c 7 7 6 f c . . 
-    . . . f c c c c 7 7 6 f 7 7 c . 
-    . . c 7 2 7 7 7 6 c f 7 7 7 7 c 
-    . c 7 7 2 7 7 c f c 6 7 7 6 c c 
-    c 1 1 1 1 7 6 f c c 6 6 6 c . . 
-    f 1 1 1 1 1 6 6 c 6 6 6 6 f . . 
-    f 6 1 1 1 1 1 6 6 6 6 6 c f . . 
-    . f 6 1 1 1 1 1 1 6 6 6 f . . . 
-    . . c c c c c c c c c f . . . . 
-    `, SpriteKind.Player)
-mySprite2.setPosition(20, 40)
-mySprite3 = sprites.create(img`
-    . . . . f f f f f . . . . . . . 
-    . . . f e e e e e f f f . . . . 
-    . . f d d d e e e e d d f . . . 
-    . c d d d d d e e e b d c . . . 
-    . c d d d d d d e e b d c . . . 
-    c d d f d d f d e e f c . f f . 
-    c d d f d d f d e e f . . f e f 
-    c d e e d d d d e e f . . f e f 
-    . f d d d c d e e f f . . f e f 
-    . . f f f d e e e e e f . f e f 
-    . . . . f e e e e e e e f f f . 
-    . . . . f f e e e e e b f f . . 
-    . . . f e f f e e c d d f f . . 
-    . . f d d b d d c f f f . . . . 
-    . . f d d c d d d f f . . . . . 
-    . . . f f f f f f f . . . . . . 
-    `, SpriteKind.Player)
-mySprite3.setPosition(20, 60)
-mySprite4 = sprites.create(img`
-    ........................
-    ........................
-    ........................
-    ........................
-    .........fffff..........
-    ........f11111ff........
-    .......fb111111bf.......
-    .......f1111111dbf......
-    ......fd111111dddf......
-    ......fd11111ddddf......
-    ......fd11dddddddf......
-    ......f111dddddddf......
-    ......f11fcddddddf......
-    .....fb1111bdddbf.......
-    .....f1b1bdfcfff........
-    .....fbfbffffffff.......
-    ......fffffffffff.ff....
-    ...........ffffffff.....
-    ........f1b1bffffff.....
-    ........fbfbffffff......
-    ........................
-    ........................
-    ........................
-    ........................
-    `, SpriteKind.Player)
-mySprite4.setPosition(20, 80)
+mySprite.setPosition(18, 54)
 let Finish = sprites.create(img`
     ........................
     ........................
